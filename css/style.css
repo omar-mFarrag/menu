@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    background-color: #10131c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.menu{
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #212532;
+    border-radius: 10px;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-delay: .8s;
+}
+.menu.active{
+    width: 200px;
+    height: 200px;
+    transition-delay: 0s;
+}
+.menu span{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(calc(10px * var(--x)), calc(10px * var(--y)));
+    transition: width .5s, height .5s, transform .5s, background-color 0s;
+    transition-delay: calc(.1s * var(--i));
+}
+.menu.active span{
+    transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+    width: 40px;
+    height: 40px;
+    background-color: #10131c;
+    transition-delay: calc( .8s - (.1s * var(--i)));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu  span i{
+    opacity: 0;
+    transition: .0s;
+    color: white;
+}
+.menu.menu.active span i{
+    opacity: 1;
+    font-size: 20px;
+    color: white;
+    transition-delay: calc( .8s - (.1s * var(--i))) ;
+}
